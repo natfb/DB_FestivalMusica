@@ -1,0 +1,111 @@
+
+CREATE TABLE Festival (
+cod_festival int PRIMARY KEY
+);
+
+CREATE TABLE Palco (
+cod_palco int PRIMARY KEY,
+nome varchar(100),
+capacidade int,
+local varchar(200),
+cod_festival int,
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+CREATE TABLE Artista (
+cod_artista int PRIMARY KEY,
+nome varchar(100),
+genero varchar(100),
+nacionalidade varchar(100)
+);
+
+CREATE TABLE Patrocinador (
+cod_patrocinador int PRIMARY KEY,
+nome varchar(100),
+tipo varchar(100),
+valor float,
+cod_festival int,
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+CREATE TABLE Ingresso (
+cod_ingresso int PRIMARY KEY,
+valor float,
+data date,
+tipo varchar(50)
+);
+
+CREATE TABLE Participante (
+cod_participante int PRIMARY KEY,
+nome varchar(100),
+CPF varchar(14),
+email varchar(100)
+);
+
+CREATE TABLE Alimentação (
+local varchar(200),
+horario time,
+nome varchar(100),
+cod_empresa int
+);
+
+CREATE TABLE Venda (
+qtd int,
+cod_venda int PRIMARY KEY,
+cod_participante int,
+FOREIGN KEY(cod_participante) REFERENCES Participante (cod_participante)
+);
+
+CREATE TABLE Empresa (
+cod_empresa int PRIMARY KEY,
+valor float,
+cod_festival int,
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+CREATE TABLE Segurança (
+nome varchar(100),
+area varchar(100),
+turno varchar(50),
+cod_empresa int,
+FOREIGN KEY(cod_empresa) REFERENCES Empresa (cod_empresa)
+);
+
+CREATE TABLE Funcionário (
+cod_funcionario Texto(1) PRIMARY KEY,
+nome varchar(100),
+funcao varchar(100),
+horario time,
+cod_empresa int,
+FOREIGN KEY(cod_empresa) REFERENCES Empresa (cod_empresa)
+);
+
+CREATE TABLE Festival_Participante (
+cod_participante int,
+cod_festival int,
+FOREIGN KEY(cod_participante) REFERENCES Participante (cod_participante),
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+CREATE TABLE Performance (
+hora_inicio time,
+hora_fim time,
+data date,
+cod_performance Texto(1) PRIMARY KEY,
+cod_artista int,
+cod_palco int,
+FOREIGN KEY(cod_artista) REFERENCES Artista (cod_artista),
+FOREIGN KEY(cod_palco) REFERENCES Palco (cod_palco)
+);
+
+CREATE TABLE Venda_Ingresso (
+valor float,
+data date,
+tipo varchar(50),
+cod_ingresso int,
+cod_venda int,
+FOREIGN KEY(cod_ingresso) REFERENCES Ingresso (cod_ingresso),
+FOREIGN KEY(cod_venda) REFERENCES Venda (cod_venda)
+);
+
+ALTER TABLE Alimentação ADD FOREIGN KEY(cod_empresa) REFERENCES Empresa (cod_empresa);
