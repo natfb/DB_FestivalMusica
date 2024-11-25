@@ -1,0 +1,58 @@
+cod_participante,cod_festival,avaliacao,genero_favorito,genero_festival
+1,1,Gostou,Rock,Rock
+1,2,Nao Gostou,Rock,Pop
+2,1,Gostou,Rock,Rock
+2,3,Gostou,Samba,Samba
+2,4,Nao Gostou,Samba,Eletrônica
+3,1,Gostou,Rock,Rock
+3,2,Nao Gostou,Eletrônica,Pop
+3,4,Gostou,Eletrônica,Eletrônica
+4,2,Gostou,Pop,Pop
+4,3,Nao Gostou,Rock,Samba
+4,4,Gostou,Eletrônica,Eletrônica
+5,1,Nao Gostou,Samba,Rock
+5,3,Gostou,Samba,Samba
+6,2,Gostou,Pop,Pop
+6,4,Gostou,Eletrônica,Eletrônica
+7,1,Nao Gostou,Eletrônica,Rock
+7,2,Gostou,Pop,Pop
+7,3,Gostou,Samba,Samba
+7,4,Nao Gostou,Rock,Eletrônica
+8,1,Gostou,Rock,Rock
+8,2,Nao Gostou,Rock,Pop
+9,1,Gostou,Rock,Rock
+9,3,Gostou,Samba,Samba
+9,4,Nao Gostou,Samba,Eletrônica
+10,1,Gostou,Rock,Rock
+10,2,Nao Gostou,Eletrônica,Pop
+10,4,Gostou,Eletrônica,Eletrônica
+11,2,Gostou,Pop,Pop
+11,3,Nao Gostou,Rock,Samba
+11,4,Gostou,Eletrônica,Eletrônica
+12,1,Nao Gostou,Samba,Rock
+12,3,Gostou,Samba,Samba
+12,2,Gostou,Pop,Pop
+12,4,Gostou,Eletrônica,Eletrônica
+13,1,Nao Gostou,Eletrônica,Rock
+13,2,Gostou,Pop,Pop
+13,3,Gostou,Samba,Samba
+13,4,Nao Gostou,Rock,Eletrônica
+14,1,Gostou,Rock,Rock
+14,2,Nao Gostou,Rock,Pop
+15,1,Gostou,Rock,Rock
+15,3,Gostou,Samba,Samba
+16,4,Nao Gostou,Samba,Eletrônica
+17,1,Gostou,Rock,Rock
+18,2,Nao Gostou,Eletrônica,Pop
+19,4,Gostou,Eletrônica,Eletrônica
+20,2,Gostou,Pop,Pop
+20,3,Nao Gostou,Rock,Samba
+20,4,Gostou,Eletrônica,Eletrônica
+21,1,Nao Gostou,Samba,Rock
+21,3,Gostou,Samba,Samba
+22,2,Gostou,Pop,Pop
+22,4,Gostou,Eletrônica,Eletrônica
+23,1,Nao Gostou,Eletrônica,Rock
+23,2,Gostou,Pop,Pop
+23,3,Gostou,Samba,Samba
+23,4,Nao Gostou,Rock,Eletrônica
