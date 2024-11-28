@@ -458,13 +458,28 @@ def consulta2(connect):
     WHERE fes.cod_festival = i.cod_festival and i.cod_ingresso = v.cod_ingresso 
     GROUP BY(fes.nome)
     """
-    print("\nConsulta 2\n.Mostrar o valor total que cada festival lucrou com a venda de ingressos.")
+    print("\nConsulta 2\nMostrar o valor total que cada festival lucrou com a venda de ingressos.")
     cursor = connect.cursor()
     cursor.execute(select_query)
-    myresult = cursor.fetchall()
-    for x in myresult:
+    result = cursor.fetchall()
+    for x in result:
         print(x)
-    return 0
+
+    festivais = [row[0] for row in result]
+    totais = [row[1] for row in result]
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(festivais, totais, color='teal')
+
+    plt.title("Total Arrecadado por Festival", fontsize=16)
+    plt.xlabel("Festivais", fontsize=14)
+    plt.ylabel("Valor Total (R$)", fontsize=14)
+    plt.xticks(rotation=45, fontsize=12)
+    plt.yticks(fontsize=12)
+    plt.tight_layout()
+    
+    plt.show()
+
 
 def consulta3(connect):
     # valor gasto por cada participante com ingressos
@@ -472,13 +487,13 @@ def consulta3(connect):
     SELECT 
     f.nome AS festival, 
     COUNT(DISTINCT CASE WHEN av.descricao = 'gostou' THEN av.cod_participante END) AS avaliacoes_positivas,
-    COUNT(DISTINCT p.cod_participante) AS total_participantes
+    COUNT(DISTINCT av.cod_avaliacao) AS total_avaliacoes
     FROM Festival as f
     LEFT JOIN Avaliacao av ON f.cod_festival = av.cod_festival
     LEFT JOIN Participante p ON av.cod_participante = p.cod_participante
     GROUP BY f.nome;
     """
-    print("\nConsulta 2\nMostrar, para cada festival quantos participantes contém e quantos participantes deixaram uma avaliação")
+    print("\nConsulta 2\nMostrar, para cada festival quantos participantes deixaram uma avaliação e quantas delas foram positivas.")
     # add qnts ele foi tb? n sei faezr
     cursor = connect.cursor()
     cursor.execute(select_query)

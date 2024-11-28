@@ -1,0 +1,117 @@
+CREATE TABLE Festival (
+cod_festival int PRIMARY KEY,
+nome varchar(100),
+cidade varchar(100),
+estado varchar(100),
+endereco varchar(14),
+data_fim date,
+genero_festival varchar(50),
+data_inicio date
+);
+
+CREATE TABLE Palco (
+cod_palco int PRIMARY KEY,
+nome varchar(100),
+capacidade int,
+local varchar(200),
+cod_festival int
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+CREATE TABLE Artista (
+cod_artista int PRIMARY KEY,
+nome varchar(100),
+genero varchar(100),
+nacionalidade varchar(100)
+);
+
+CREATE TABLE Ingresso (
+cod_ingresso int PRIMARY KEY,
+data date,
+tipo varchar(50),
+valor float,
+cod_festival int,
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+CREATE TABLE Participante (
+cod_participante int PRIMARY KEY,
+nome varchar(200),
+CPF varchar(14),
+email varchar(100),
+genero_favorito varchar(50)
+);
+
+CREATE TABLE Venda (
+qtd int,
+cod_venda int PRIMARY KEY,
+cod_participante int,
+cod_ingresso int,
+FOREIGN KEY(cod_ingresso) REFERENCES Ingresso (cod_ingresso)
+FOREIGN KEY(cod_participante) REFERENCES Participante (cod_participante)
+);
+
+CREATE TABLE Empresa (
+cod_empresa int PRIMARY KEY,
+nome varchar(100),
+cnpj varchar(18),
+cod_festival int,
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+CREATE TABLE Funcionario (
+cod_funcionario int PRIMARY KEY,
+nome varchar(100),
+funcao varchar(50),
+horario time,
+cod_empresa int,
+FOREIGN KEY(cod_empresa) REFERENCES Empresa (cod_empresa)
+);
+
+CREATE TABLE Patrocinador (
+cod_patrocinador int PRIMARY KEY,
+nome varchar(100),
+tipo varchar(100),
+valor float,
+cod_festival int,
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+CREATE TABLE Alimentacao (
+local varchar(100),
+horario time,
+cod_empresa int,
+FOREIGN KEY(cod_empresa) REFERENCES Empresa (cod_empresa)
+);
+
+CREATE TABLE Seguranca (
+area varchar(100),
+turno varchar(50),
+cod_empresa int,
+FOREIGN KEY(cod_empresa) REFERENCES Empresa (cod_empresa)
+);
+
+CREATE TABLE Performance (
+hora_inicio time,
+hora_fim time,
+data date,
+cod_performance int PRIMARY KEY,
+cod_artista int,
+cod_palco int,
+FOREIGN KEY(cod_artista) REFERENCES Artista (cod_artista),
+FOREIGN KEY(cod_palco) REFERENCES Palco (cod_palco)
+);
+
+CREATE TABLE Avaliacao (
+cod_avaliacao int PRIMARY KEY,
+descricao varchar(14),
+cod_participante int,
+cod_festival int,
+FOREIGN KEY(cod_participante) REFERENCES Participante (cod_participante),
+FOREIGN KEY(cod_festival) REFERENCES Festival (cod_festival)
+);
+
+
+libs: pip install pandas
+      pip install matplotlib
+

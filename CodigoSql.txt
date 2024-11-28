@@ -109,3 +109,4 @@ FOREIGN KEY(cod_venda) REFERENCES Venda (cod_venda)
 );
 
 ALTER TABLE Alimentação ADD FOREIGN KEY(cod_empresa) REFERENCES Empresa (cod_empresa);
+
